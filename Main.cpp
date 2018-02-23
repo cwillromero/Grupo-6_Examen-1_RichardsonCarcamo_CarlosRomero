@@ -5,7 +5,7 @@ using namespace std;
 void strat_ncurses(bool useRaw,bool usenoECho);
 void printMenu(WINDOW * menu,string choices[],int size,int highlight);
 int main(int argc,char** argv){
-
+//Esto es un comentario
 initscr();
 noecho();
 cbreak();
