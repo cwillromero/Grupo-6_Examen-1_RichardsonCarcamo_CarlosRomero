@@ -15,6 +15,7 @@ struct snakepart {
 };
 
 class snakeclass {
+	public:
     int puntos, velocidad;
     //static const int anchuraMaxima = 10;//Tamaño del tablero
     int anchuraMaxima;
@@ -24,15 +25,11 @@ class snakeclass {
     bool get;
     snakepart comida;
     vector<snakepart> snake;
-
     void meterComida();
     bool choqueSerpiente();
     void moverSerpiente();
-
-    public:
         snakeclass();
         ~snakeclass();
-        void comenzarJuego();
 };
 
 #endif

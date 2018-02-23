@@ -25,7 +25,7 @@ snakeclass::snakeclass()
     curs_set(0);
     //anchuraMaxima = 10;
     //alturaMaxima = 10;
-    //getmaxyx(stdscr, alturaMaxima, anchuraMaxima);
+    getmaxyx(stdscr, alturaMaxima, anchuraMaxima);
 
     // valores de variables
     cuerpoSerpiente = 'x'; //cuerpo de la serpiente
@@ -150,10 +150,17 @@ bool snakeclass::choqueSerpiente()
         meterComida(); //añade mas comida
         puntos += 1; //un asterisco, un punto
         move(alturaMaxima - 1, 0);
+	printw("Pixeles Comidos: ");
+	move(alturaMaxima - 1, -3);
         printw("%d", puntos);
-        //print(puntos);
-        printw("%d", alturaMaxima);//impresion de la altura
-        printw("%d", anchuraMaxima); //impresion del ancho
+	move(alturaMaxima - 1, -6);
+	printw("   ");
+	move(alturaMaxima - 1, -9);
+	printw("Puntaje: ");
+	move(alturaMaxima - 1, -12);
+        printw("%d",(puntos*100));
+        //printw("%d", alturaMaxima);//impresion de la altura
+        //printw("%d", anchuraMaxima); //impresion del ancho
 
         if (puntos % 100 == 0)
         {
@@ -239,24 +246,4 @@ void snakeclass::moverSerpiente()
     refresh();
 }
 
-void snakeclass::comenzarJuego()
-{
-    while (true)
-    {
-        if (choqueSerpiente())
-        {
-            move(alturaMaxima / 2, anchuraMaxima / 2);
-            printw("¡¡¡HAS PERDIDO!!!");
-            break;
-        }
 
-        moverSerpiente();
-
-        if (direction == 'q')
-        {
-            break;
-        }
-
-        usleep(velocidad);//tiempo de dormir uhzzzz
-    }
-}
